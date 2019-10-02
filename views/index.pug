@@ -1,0 +1,616 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        title Piggy Bank
+        //css
+        //link(rel='stylesheet', href='/stylesheets/contact.css')
+        link(rel='stylesheet', href='/stylesheets/mycss.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:300', type='text/css')
+        //toaster
+        link(rel='stylesheet', href='/toastr/build/toastr.css')
+        // Tell the browser to be responsive to screen width
+        meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
+        // Bootstrap 3.3.7
+        //link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+        //fileinput
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/css/fileinput.min.css')
+
+        body(style='height: auto;')
+
+            div#divLogin
+                .backgroundMiddle
+                    .container
+                        .screen
+                            .screen-body
+                                h5.textWhite(style='font-size: 30px; margin-right: 10px;') Log in to Your PiggyBank Account
+                                div
+                                    p.textWhite(style='font-size: 20px') Username:
+                                    input#txtUsername.input(style='font-size: 18px;')
+                                    p.textWhite(style='font-size: 20px') Password:
+                                    input#txtPassword.input(type='password' style='font-size: 18px;')
+                                    button#btnLogin.button LOG IN
+                                    button#btnGoCreate.button Create Account
+            div#divCreate
+                .backgroundMiddle
+                    .container
+                        .screen
+                            .screen-body
+                                h5.textWhite(style='font-size: 30px; margin-right: 25px;') Create Your Account
+                                div(style='width: auto')
+                                    p.textWhite(style='font-size: 20px') Enter Username:
+                                    input#txtCreateUsername.input(style='font-size: 18px;')
+                                    p.textWhite(style='font-size: 20px') Enter Password:
+                                    input#txtCreatePassword.input(type='password' style='font-size: 18px;')
+                                    div(style='display: inline-flex;')
+                                        input#checkbox(type='checkbox' style='margin-top: 13px; height: 30px; width: 30px;')
+                                        p.textWhite(style='font-size: 20px; margin-top: 15px; margin-left: 10px;') Parent User
+                                    button#btnCreate.button Create Account
+                                    button#btnGoLogin.button Go Back
+            div#divCoins
+                center
+                    .backgroundC
+                        .container
+                            .screen
+                                input#totalCoin.totalScreen(type='text')
+                                .screen-header
+                                .screen-body
+                                    .box
+                                        p.imagelabel 1 Kuruş
+                                        img#coin1kr.image(src='../coins/1kr.png')
+                                        input#coin1kurus.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 5 Kuruş
+                                        img#coin5kr.image(src='../coins/5kr.png')
+                                        input#coin5kurus.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 10 Kuruş
+                                        img#coin10kr.image(src='../coins/10kr.png')
+                                        input#coin10kurus.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 25 Kuruş
+                                        img#coin25kr.image(src='../coins/25kr.png')
+                                        input#coin25kurus.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 50 Kuruş
+                                        img#coin50kr.image(src='../coins/50kr.png')
+                                        input#coin50kurus.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 1 Lira
+                                        img#coin1tl.image(src='../coins/1tl.png')
+                                        input#coin1tele.imageCount(type='text')
+                                button#btnLogout.button Log Out
+            div#divPCoins
+                center
+                    .backgroundP
+                        .container
+                            .screen
+                                input#totalCoinP.totalScreen(type='text')
+                                .screen-header
+                                .screen-body
+                                    .box
+                                        p.imagelabel 1 Kuruş
+                                        img.image(src='../coins/1kr.png')
+                                        input#coin1kurusP.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 5 Kuruş
+                                        img.image(src='../coins/5kr.png')
+                                        input#coin5kurusP.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 10 Kuruş
+                                        img.image(src='../coins/10kr.png')
+                                        input#coin10kurusP.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 25 Kuruş
+                                        img.image(src='../coins/25kr.png')
+                                        input#coin25kurusP.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 50 Kuruş
+                                        img.image(src='../coins/50kr.png')
+                                        input#coin50kurusP.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 1 Lira
+                                        img.image(src='../coins/1tl.png')
+                                        input#coin1teleP.imageCount(type='text')
+                                button#btnLogoutP.button Log Out
+            div#divParentUser
+                .backgroundMiddle(style='margin-top: 5px!important;')
+                    .container
+                        .screen
+                            .screen-body(style='display: grid!important;')
+                                center
+                                    p.textWhite(style='font-size: 30px; text-align: center;') User List
+                                    table#tableUserList
+            div#divUserCoins
+                center
+                    .backgroundMiddle(style='margin-top: 5px!important;')
+                        .container
+                            .screen
+                                input#totalUserCoin.totalScreen(type='text')
+                                .screen-header
+                                .screen-body
+                                    .box
+                                        p.imagelabel 1 Kuruş
+                                        img#userCoin1kr.image(src='../coins/1kr.png')
+                                        input#userCoin1kurus.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 5 Kuruş
+                                        img#userCoin5kr.image(src='../coins/5kr.png')
+                                        input#userCoin5kurus.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 10 Kuruş
+                                        img#userCoin10kr.image(src='../coins/10kr.png')
+                                        input#userCoin10kurus.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 25 Kuruş
+                                        img#userCoin25kr.image(src='../coins/25kr.png')
+                                        input#userCoin25kurus.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 50 Kuruş
+                                        img#userCoin50kr.image(src='../coins/50kr.png')
+                                        input#userCoin50kurus.imageCount(type='text')
+                                    .box
+                                        p.imagelabel 1 Lira
+                                        img#userCoin1tl.image(src='../coins/1tl.png')
+                                        input#userCoin1tele.imageCount(type='text')
+                                button#btnClose.button Close
+            div#divAdd
+                center
+                    .background(style='display: block')
+                        .container
+                            .screen(style='width: fit-content;')
+                                .screen-header
+                                .screen-body
+                                    .form-group#uploadImage
+                                        h5.control-label(style='color: #FFA07A') Upload Image
+                                        br
+                                        .form-group.flex-full
+                                            .screen-body
+                                                .box
+                                                    img#coin1krH.image(src='../coins/1kr.png', onclick='add1kr()')
+                                                .box
+                                                    img#coin5krH.image(src='../coins/5kr.png', onclick='add5kr()')
+                                                .box
+                                                    img#coin10krH.image(src='../coins/10kr.png', onclick='add10kr()')
+                                                .box
+                                                    img#coin25krH.image(src='../coins/25kr.png', onclick='add25kr()')
+                                                .box
+                                                    img#coin50krH.image(src='../coins/50kr.png', onclick='add50kr()')
+                                                .box
+                                                    img#coin1tlH.image(src='../coins/1tl.png', onclick='add1tl()')
+
+                                            input#image.pull-right(type='file', name='image[]', accept='image/*', multiple='', data-show-upload='false')
+                                            input#btnSendNow.form-button(type='submit' value='Gönder' style='width:100%; height:40px; margin-top: 5px')
+
+        //jquery
+        script(src='https://code.jquery.com/jquery-3.3.1.min.js', integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=', crossorigin='anonymous')
+        //bootstrap
+        //script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+        //fileinput
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/fileinput.min.js')
+        //toaster
+        script(src='toastr/toastr.js')
+        script.
+            var coinType
+            var fileName;
+            var currentUser;
+            var checkbox = false;
+            var userCoin1 = 0, userCoin5 = 0, userCoin10 = 0, userCoin25 = 0, userCoin50 = 0, userCoin1tl = 0;
+            (function (window, location) {
+                history.replaceState(null, document.title, location.pathname + "#!/stealingyourhistory");
+                history.pushState(null, document.title, location.pathname);
+
+                window.addEventListener("popstate", function () {
+                    if (location.hash === "#!/stealingyourhistory") {
+                        history.replaceState(null, document.title, location.pathname);
+                        setTimeout(function () {
+
+                            location.replace("http://192.168.1.109:3000/");
+
+                        }, 0);
+                    }
+                }, false);
+            }(window, location));
+            $(function () {
+                $("#btnLogin").click(function (e) {
+                    e.preventDefault();
+                    if ((document.getElementById('txtUsername').value == '') || (document.getElementById('txtPassword').value == '')) {
+                        toastr.warning("Empty Input");
+                    }else if ((document.getElementById('txtUsername').value != '') && (document.getElementById('txtPassword').value != '')) {
+                        var data = {
+                            'H': "login",
+                            'username': document.getElementById("txtUsername").value.trim(),
+                            'password': document.getElementById("txtPassword").value.trim()
+                        }
+                        $.post('/newImage', data)
+                            .done(function (retval) {
+                                if (retval == "noInfo") {
+                                    console.log("Yok böyle biri")
+                                    toastr.warning("No Info");
+                                } else if (retval == "wrongPassword") {
+                                    console.log("Şifre yanlış")
+                                    toastr.warning("Wrong Password");
+                                } else {
+                                    toastr.info("Welcome");
+                                    currentUser = retval.account.username
+                                    if (retval.account.parentUser === true){
+                                        listUser()
+                                        document.getElementById("divParentUser").style.display = "block";
+                                        document.getElementById("divPCoins").style.display = "block";
+                                        document.getElementById("divCoins").style.display = "none";
+                                        document.getElementById("divLogin").style.display = "none";
+                                    }else{
+                                        var x = document.getElementById("divLogin");
+                                        var y = document.getElementById("divCoins");
+                                        var z = document.getElementById("divAdd");
+                                        if (x.style.display === "none") {
+                                            x.style.display = "block";
+                                            y.style.display = "none";
+                                            z.style.display = "none";
+                                        } else {
+                                            x.style.display = "none";
+                                            y.style.display = "block";
+                                            //z.style.display = "block";
+                                        }
+                                    }
+                                    moneys();
+                                }
+                            })
+                    }
+                    document.getElementById('txtUsername').value = ''
+                    document.getElementById('txtPassword').value = ''
+                })
+                $("#btnGoCreate").click(function (e) {
+                    e.preventDefault();
+                    var x = document.getElementById("divCreate");
+                    var y = document.getElementById("divLogin");
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                        y.style.display = "none";
+                    } else {
+                        x.style.display = "none";
+                        y.style.display = "block";
+                    }
+                    document.getElementById('txtUsername').value = ''
+                    document.getElementById('txtPassword').value = ''
+                    document.getElementById("txtCreateUsername").focus()
+                })
+                $("#btnLogout").click(function (e) {
+                    e.preventDefault();
+                    location.replace("http://192.168.1.109:3000/");
+                    currentUser = null;
+                })
+                $("#btnLogoutP").click(function (e) {
+                    e.preventDefault();
+                    location.replace("http://192.168.1.109:3000/");
+                    currentUser = null;
+                })
+                $("#btnGoLogin").click(function (e) {
+                    e.preventDefault();
+                    var x = document.getElementById("divCreate");
+                    var y = document.getElementById("divLogin");
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                        y.style.display = "none";
+                    } else {
+                        x.style.display = "none";
+                        y.style.display = "block";
+                    }
+                    document.getElementById('txtCreateUsername').value = ''
+                    document.getElementById('txtCreatePassword').value = ''
+                    document.getElementById("txtUsername").focus()
+                })
+            })
+            $(document).ready(function () {
+                $('input[type="checkbox"]').click(function () {
+                    if ($(this).prop("checked") == true) {
+                        //alert("Checkbox is checked.");
+                        //toastr.info("YES");
+                        checkbox = true;
+                    } else if ($(this).prop("checked") == false) {
+                        //alert("Checkbox is unchecked.");
+                        //toastr.info("NO");
+                        checkbox = false;
+                    }
+                });
+            });
+            $(function () {
+                $("#btnCreate").click(function (e) {
+                    e.preventDefault();
+                    if ((document.getElementById('txtCreateUsername').value != '') && (document.getElementById('txtCreatePassword').value != '')) {
+                        var data = {
+                            'H': "create",
+                            'username': document.getElementById("txtCreateUsername").value.trim(),
+                            'password': document.getElementById("txtCreatePassword").value.trim(),
+                            'parentUser': checkbox
+                        }
+                        $.post('/newImage', data)
+                            .done(function (retval) {
+                                //console.log(retval)
+                                //console.log("retval")
+                                //console.log(retval)
+                                document.getElementById("txtCreateUsername").value = ""
+                                document.getElementById("txtCreatePassword").value = ""
+                                if (retval == "Already"){
+                                    toastr.warning("Username Already Taken");
+                                } else if (retval != "Already") {
+                                    toastr.info("Success!");
+                                    $("#btnGoLogin").click();
+                                }
+                            })
+                    }else{
+                        toastr.warning("Invalid Inputs");
+                    }
+                })
+            })
+            $(function () {
+                $("#btnSendNow").click(function (e) {
+                    e.preventDefault();
+                    console.log("fileName")
+                    console.log(fileName)
+                    console.log("fileName")
+                    uploadImage(fileName,function (response) {
+                        if(response.success){
+                            console.log("response")
+                            console.log(response)
+                            console.log("response")
+                            if (response.success == true) {
+                                toastr.info("gelmiş olması lazım");
+                                //moneys()
+                            }
+                            var data = {
+                                'H': "pic",
+                                'user': currentUser,
+                                'type': coinType,
+                                'image': response.path
+                            }
+                            $.post('/newImage', data)
+                                .done(function (retval) {
+                                    console.log(retval)
+                                })
+                        }else{
+                            console.log(response.message);
+                        }
+                    },function (error) {
+                        console.log("error")
+                        console.log(error)
+                    },function (response) {
+                        console.log("response")
+                        console.log(response)
+                    })
+                })
+            })
+            $(function () {
+                console.log("BAŞLADIM BEN")
+
+                //document.getElementById("divLogin").style.display = "none";
+                document.getElementById("divCreate").style.display = "none";
+                document.getElementById("divCoins").style.display = "none";
+                document.getElementById("divPCoins").style.display = "none";
+                document.getElementById("divParentUser").style.display = "none";
+                document.getElementById("divUserCoins").style.display = "none";
+                document.getElementById("divAdd").style.display = "none";
+
+                document.getElementById("kvFileinputModal").style.display = "none";
+                //document.getElementById("file-preview").style.display = "none";
+                //document.getElementById("file-input file-input-ajax-new").style.display = "none";
+
+                document.getElementById("txtUsername").focus()
+            })
+            function listUser() {
+                //toastr.info("Parent User Is Here");
+                //document.getElementById("ba").style.marginTop = "5px!important";
+                $.get('/listUser')
+                    .done(function (returnValue) {
+                        var userTotal = 0;
+                        var userArray = [];
+                        for (var i = 0; i < returnValue.accounts.length; i++) {
+                            userArray.push(returnValue.accounts[i].username);
+                        }
+                        userArray.sort()
+                        $("#tableUserList").empty()
+                        $("#tableUserList").append('<div class="scrollbar" id="style-1" overflow-x: hidden; overflow-y: scroll;"></div>')
+                        $("#style-1").append('<tr><th>Number</th><th style="padding-left: 40px">User Name</th><th style="padding-left: 40px;">Parent User</th></tr>')
+                        for (var i = 0; i < returnValue.accounts.length; i++) {
+                            $("#style-1").append('<tr><td><center>'+ '#' + (i + 1) +'</center></td><td style="padding-left: 40px"><center><a class="textNotWhite" href="javascript:whenUserClicked(\'' + returnValue.accounts[i].username + '\')">' + returnValue.accounts[i].username + '</a></center></td><td style="padding-left: 40px"><center>'+ returnValue.accounts[i].parentUser +'</center></td></tr>')
+                        }
+                    })
+            }
+            function userMoney(userName) {
+                userCoin1 = 0, userCoin5 = 0, userCoin10 = 0, userCoin25 = 0, userCoin50 = 0, userCoin1tl = 0;
+                $.get('/list')
+                    .done(function (returnValue) {
+                        for (var i = 0; i <= returnValue.accounts.length; i++) {
+                            if (returnValue.accounts[i].user === userName) {  //returnValue.accounts[i].user is NOT undefined
+                                if (returnValue.accounts[i].type == '1 kurus') {
+                                    userCoin1++;
+                                } else if (returnValue.accounts[i].type == '5 kurus') {
+                                    userCoin5++;
+                                } else if (returnValue.accounts[i].type == '10 kurus') {
+                                    userCoin10++;
+                                } else if (returnValue.accounts[i].type == '25 kurus') {
+                                    userCoin25++;
+                                } else if (returnValue.accounts[i].type == '50 kurus') {
+                                    userCoin50++;
+                                } else if (returnValue.accounts[i].type == '1 tl') {
+                                    userCoin1tl++;
+                                }
+                                y(userCoin1, userCoin5, userCoin10, userCoin25, userCoin50, userCoin1tl)
+                            }
+                        }
+                    })
+            }
+            function y(kr1, kr5, kr10, kr25, kr50, tl1) {
+                document.getElementById("userCoin1kurus").value = "x" + kr1;
+                document.getElementById("userCoin5kurus").value = "x" + kr5;
+                document.getElementById("userCoin10kurus").value = "x" + kr10;
+                document.getElementById("userCoin25kurus").value = "x" + kr25;
+                document.getElementById("userCoin50kurus").value = "x" + kr50;
+                document.getElementById("userCoin1tele").value = "x" + tl1;
+                var userTotal = parseInt((kr1 * 1) + (kr5 * 5) + (kr10 * 10) + (kr25 * 25) + (kr50 * 50) + (tl1 * 100))
+                document.getElementById("totalUserCoin").value = "Total: " + userTotal / 100 + "tl";
+            }
+            function whenUserClicked(username) {
+                $("#btnClose").click();
+                //toastr.info("this is the user: " + username);
+                document.getElementById("divUserCoins").style.display = "block";
+                userCoin1 = 0, userCoin5 = 0, userCoin10 = 0, userCoin25 = 0, userCoin50 = 0, userCoin1tl = 0;
+                userMoney(username)
+            }
+            $("#btnClose").click(function (e) {
+                e.preventDefault();
+                document.getElementById("divUserCoins").style.display = "none";
+                y(0, 0, 0, 0, 0, 0)
+            })
+            function moneys() {
+                var coin1 = 0, coin5 = 0, coin10 = 0, coin25 = 0, coin50 = 0, coin1tl = 0;
+                $.get('/list')
+                    .done(function (returnValue) {
+                        for (var i = 0; i <= returnValue.accounts.length; i++){
+                            if (returnValue.accounts[i].user === currentUser){  //returnValue.accounts[i].user is NOT undefined
+                                if (returnValue.accounts[i].type == '1 kurus') {
+                                    coin1++;
+                                } else if (returnValue.accounts[i].type == '5 kurus') {
+                                    coin5++;
+                                } else if (returnValue.accounts[i].type == '10 kurus') {
+                                    coin10++;
+                                } else if (returnValue.accounts[i].type == '25 kurus') {
+                                    coin25++;
+                                } else if (returnValue.accounts[i].type == '50 kurus') {
+                                    coin50++;
+                                } else if (returnValue.accounts[i].type == '1 tl') {
+                                    coin1tl++;
+                                }
+                                x(coin1, coin5, coin10, coin25, coin50, coin1tl)
+                            }
+                        }
+                    })
+            }
+            function x(kr1, kr5, kr10, kr25, kr50, tl1) {
+                document.getElementById("coin1kurus").value = "x" + kr1;
+                document.getElementById("coin5kurus").value = "x" + kr5;
+                document.getElementById("coin10kurus").value = "x" + kr10;
+                document.getElementById("coin25kurus").value = "x" + kr25;
+                document.getElementById("coin50kurus").value = "x" + kr50;
+                document.getElementById("coin1tele").value = "x" + tl1;
+                var total = parseInt((kr1 * 1) + (kr5 * 5) + (kr10 * 10) + (kr25 * 25) + (kr50 * 50) + (tl1 * 100))
+                document.getElementById("totalCoin").value = "Total: " + total / 100 + "tl";
+
+                document.getElementById("coin1kurusP").value = "x" + kr1;
+                document.getElementById("coin5kurusP").value = "x" + kr5;
+                document.getElementById("coin10kurusP").value = "x" + kr10;
+                document.getElementById("coin25kurusP").value = "x" + kr25;
+                document.getElementById("coin50kurusP").value = "x" + kr50;
+                document.getElementById("coin1teleP").value = "x" + tl1;
+                var total = parseInt((kr1 * 1) + (kr5 * 5) + (kr10 * 10) + (kr25 * 25) + (kr50 * 50) + (tl1 * 100))
+                document.getElementById("totalCoinP").value = "Total: " + total / 100 + "tl";
+            }
+            function add1kr() {
+                coinType = '1 kurus'
+                console.log(coinType)
+                toastr.info(coinType);
+            }
+            function add5kr() {
+                coinType = '5 kurus'
+                console.log(coinType)
+                toastr.info(coinType);
+            }
+            function add10kr() {
+                coinType = '10 kurus'
+                console.log(coinType)
+                toastr.info(coinType);
+            }
+            function add25kr() {
+                coinType = '25 kurus'
+                console.log(coinType)
+                toastr.info(coinType);
+            }
+            function add50kr() {
+                coinType = '50 kurus'
+                console.log(coinType)
+                toastr.info(coinType);
+            }
+            function add1tl() {
+                coinType = '1 tl'
+                console.log(coinType)
+                toastr.info(coinType);
+            }
+            $('#image').fileinput({
+                uploadUrl: "/imges",
+                autoReplace: true,
+                maxFileCount: 1,
+                allowedFileExtensions: ["jpg", "png", "jpeg"]
+            });
+            /* KEY-DOWN */
+            $("#txtUsername").keydown(function (event) {
+                if (event.keyCode === 13) {
+                    //alert("alert");
+                    document.getElementById("txtPassword").focus()
+                }
+            });$("#txtPassword").keydown(function (event) {
+                if (event.keyCode === 13) {
+                    //alert("alert");
+                    $("#btnLogin").click();
+                }
+            });$("#txtCreateUsername").keydown(function (event) {
+                if (event.keyCode === 13) {
+                    //alert("alert");
+                    document.getElementById("txtCreatePassword").focus()
+                }
+            });$("#txtCreatePassword").keydown(function (event) {
+                if (event.keyCode === 13) {
+                    //alert("alert");
+                    $("#btnCreate").click();
+                }
+            });
+            $('#image').on('change', function () {
+                //    fileName = this.files[0];
+
+                var fileList = this.files;
+                console.log("fileList")
+                console.log(fileList)
+                console.log("fileList")
+                fileName = fileList[0];
+            });
+            function getUploadXHR(url, callback, onError, onProgress) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('post', url, true);
+                xhr.upload.onprogress = function (e) {
+                    if (onProgress) {
+                        if (e.lengthComputable) {
+                            var percentage = (e.loaded / e.total) * 100;
+                            console.log("per:" + percentage);
+                            onProgress(percentage);
+                        }
+                    }
+                };
+                xhr.onerror = function (e) {
+                    if (onError) {
+                        onError(e);
+                    }
+                };
+                xhr.onload = function () {
+                    if (this.status === 200) {
+                        var response = JSON.parse(this.responseText);
+                        callback(response);
+                    } else {
+                        if (onError) {
+                            onError(this.status);
+                        }
+                    }
+                };
+                return xhr;
+            }
+            function uploadImage(file, callback, onError, onProgress) {
+                var formData = new FormData();
+                formData.append('image', file);
+                console.log("file")
+                console.log(file)
+                console.log("file")
+                console.log("formData")
+                console.log(formData)
+                console.log("formData")
+                var xhr = getUploadXHR('upload', callback, onError, onProgress);
+                xhr.send(formData);
+            }
