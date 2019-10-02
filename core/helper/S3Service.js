@@ -4,10 +4,10 @@
 const fs = require('fs');
 const AWS = require('aws-sdk');
 
-const bucket = 'piggybank0833';
-const accessKeyId = 'AKIAILGDCQQMRXTZ2KVQ';
-const secret = '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';
-const region = 'us-east-2';
+const bucket = '.....';
+const accessKeyId = '.....';
+const secret = '.....';
+const region = '.....';
 const signatureVersion = 'v4';
 
 
